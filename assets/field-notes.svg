@@ -1,0 +1,186 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#080B10"/>
+    <stop offset="55%" stop-color="#0D1117"/>
+    <stop offset="100%" stop-color="#111827"/>
+  </linearGradient>
+
+  <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#58A6FF" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#58A6FF" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#58A6FF" stop-opacity="0"/>
+  </linearGradient>
+
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="1" opacity="0.32"/>
+  </pattern>
+
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="4" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <clipPath id="screen">
+    <rect x="40" y="30" width="1120" height="300" rx="18"/>
+  </clipPath>
+
+</defs>
+
+<!-- background -->
+
+<rect width="1200" height="360" fill="#05070A"/>
+
+<rect x="40" y="30" width="1120" height="300" rx="18"
+   fill="url(#bg)"
+   stroke="#263241"
+   stroke-width="1.5"/>
+
+<rect x="40" y="30" width="1120" height="300" rx="18"
+   fill="url(#grid)"
+   clip-path="url(#screen)"/>
+
+<!-- top bar -->
+
+<circle cx="72" cy="62" r="6" fill="#FF5F56"/>
+<circle cx="94" cy="62" r="6" fill="#FFBD2E"/>
+<circle cx="116" cy="62" r="6" fill="#27C93F"/>
+
+<text x="150" y="68"
+   fill="#6B7280"
+   font-family="monospace"
+   font-size="13">
+SANSKRITI / FIELD NOTES </text>
+
+<text x="1128" y="68"
+   text-anchor="end"
+   fill="#4B5563"
+   font-family="monospace"
+   font-size="12">
+SESSION: ACTIVE </text>
+
+<!-- main title -->
+
+<text x="82" y="135"
+   fill="#F0F6FC"
+   font-family="monospace"
+   font-size="42"
+   font-weight="700">
+SANSKRITI RANA </text>
+
+<text x="84" y="166"
+   fill="#58A6FF"
+   font-family="monospace"
+   font-size="15">
+problem-first engineering </text>
+
+<!-- animated cursor -->
+
+<rect x="307" y="151" width="8" height="18" fill="#58A6FF">
+  <animate attributeName="opacity"
+           values="1;0;1"
+           dur="1s"
+           repeatCount="indefinite"/>
+</rect>
+
+<!-- separator -->
+
+<line x1="82" y1="194" x2="1118" y2="194"
+   stroke="#263241"
+   stroke-width="1"/>
+
+<!-- status -->
+
+<circle cx="91" cy="226" r="5" fill="#3FB950" filter="url(#glow)">
+  <animate attributeName="r"
+           values="5;7;5"
+           dur="2s"
+           repeatCount="indefinite"/>
+</circle>
+
+<text x="108" y="231"
+   fill="#8B949E"
+   font-family="monospace"
+   font-size="14">
+SYSTEM ONLINE </text>
+
+<!-- signal -->
+
+<text x="300" y="231"
+   fill="#6B7280"
+   font-family="monospace"
+   font-size="13">
+signal: </text>
+
+<text x="355" y="231"
+   fill="#C9D1D9"
+   font-family="monospace"
+   font-size="13">
+curiosity → experiment → build </text>
+
+<!-- lower status -->
+
+<text x="84" y="274"
+   fill="#6B7280"
+   font-family="monospace"
+   font-size="12">
+CURRENTLY EXPLORING </text>
+
+<text x="84" y="300"
+   fill="#C9D1D9"
+   font-family="monospace"
+   font-size="15">
+AI/ML </text>
+
+<text x="168" y="300"
+   fill="#374151"
+   font-family="monospace"
+   font-size="15">
+· </text>
+
+<text x="190" y="300"
+   fill="#C9D1D9"
+   font-family="monospace"
+   font-size="15">
+DEVOPS </text>
+
+<text x="288" y="300"
+   fill="#374151"
+   font-family="monospace"
+   font-size="15">
+· </text>
+
+<text x="310" y="300"
+   fill="#C9D1D9"
+   font-family="monospace"
+   font-size="15">
+SOFTWARE </text>
+
+<!-- moving scan -->
+
+<rect x="42" y="35" width="3" height="290"
+   fill="url(#signal)"
+   opacity="0.25">
+
+<animate attributeName="x"
+        values="42;1157;42"
+        dur="7s"
+        repeatCount="indefinite"/>
+
+</rect>
+
+<!-- bottom activity -->
+
+<text x="1118" y="300"
+   text-anchor="end"
+   fill="#4B5563"
+   font-family="monospace"
+   font-size="11">
+build / break / understand / rebuild </text>
+
+</svg>
