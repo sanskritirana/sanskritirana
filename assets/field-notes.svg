@@ -2,29 +2,61 @@
 
 <defs>
 
+  <!-- Background -->
+
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
     <stop offset="0%" stop-color="#080B10"/>
     <stop offset="55%" stop-color="#0D1117"/>
     <stop offset="100%" stop-color="#111827"/>
   </linearGradient>
 
-  <linearGradient id="signal" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#58A6FF" stop-opacity="0"/>
-    <stop offset="50%" stop-color="#58A6FF" stop-opacity="1"/>
-    <stop offset="100%" stop-color="#58A6FF" stop-opacity="0"/>
-  </linearGradient>
+  <!-- Circuit glow -->
 
-  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="1" opacity="0.32"/>
-  </pattern>
-
-  <filter id="glow">
-    <feGaussianBlur stdDeviation="4" result="blur"/>
+  <filter id="nodeGlow">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
     <feMerge>
       <feMergeNode in="blur"/>
       <feMergeNode in="SourceGraphic"/>
     </feMerge>
   </filter>
+
+  <!-- Stronger glow -->
+
+  <filter id="signalGlow">
+    <feGaussianBlur stdDeviation="5" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
+
+  <!-- Grid -->
+
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path
+      d="M 40 0 L 0 0 0 40"
+      fill="none"
+      stroke="#1F2937"
+      stroke-width="1"
+      opacity="0.32"
+    />
+  </pattern>
+
+  <!-- Scan gradient -->
+
+  <linearGradient id="scan" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#58A6FF" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#58A6FF" stop-opacity="1"/>
+    <stop offset="100%" stop-color="#58A6FF" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- Circuit line -->
+
+  <linearGradient id="circuitLine" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#303B49"/>
+    <stop offset="50%" stop-color="#3B4655"/>
+    <stop offset="100%" stop-color="#303B49"/>
+  </linearGradient>
 
   <clipPath id="screen">
     <rect x="40" y="30" width="1120" height="300" rx="18"/>
@@ -32,155 +64,498 @@
 
 </defs>
 
-<!-- background -->
+<!-- ====================================================== -->
+
+<!-- BACKGROUND -->
+
+<!-- ====================================================== -->
 
 <rect width="1200" height="360" fill="#05070A"/>
 
-<rect x="40" y="30" width="1120" height="300" rx="18"
-   fill="url(#bg)"
-   stroke="#263241"
-   stroke-width="1.5"/>
+<rect
+x="40"
+y="30"
+width="1120"
+height="300"
+rx="18"
+fill="url(#bg)"
+stroke="#263241"
+stroke-width="1.5"
+/>
 
-<rect x="40" y="30" width="1120" height="300" rx="18"
-   fill="url(#grid)"
-   clip-path="url(#screen)"/>
+<rect
+x="40"
+y="30"
+width="1120"
+height="300"
+rx="18"
+fill="url(#grid)"
+clip-path="url(#screen)"
+/>
 
-<!-- top bar -->
+<!-- ====================================================== -->
+
+<!-- TOP BAR -->
+
+<!-- ====================================================== -->
 
 <circle cx="72" cy="62" r="6" fill="#FF5F56"/>
 <circle cx="94" cy="62" r="6" fill="#FFBD2E"/>
 <circle cx="116" cy="62" r="6" fill="#27C93F"/>
 
-<text x="150" y="68"
-   fill="#6B7280"
-   font-family="monospace"
-   font-size="13">
+<text
+x="150"
+y="68"
+fill="#6B7280"
+font-family="monospace"
+font-size="13"
+
+>
+
 SANSKRITI / FIELD NOTES </text>
 
-<text x="1128" y="68"
-   text-anchor="end"
-   fill="#4B5563"
-   font-family="monospace"
-   font-size="12">
+<text
+x="1128"
+y="68"
+text-anchor="end"
+fill="#4B5563"
+font-family="monospace"
+font-size="12"
+
+>
+
 SESSION: ACTIVE </text>
 
-<!-- main title -->
+<!-- ====================================================== -->
 
-<text x="82" y="135"
-   fill="#F0F6FC"
-   font-family="monospace"
-   font-size="42"
-   font-weight="700">
+<!-- LEFT SIDE: IDENTITY -->
+
+<!-- ====================================================== -->
+
+<text
+x="82"
+y="135"
+fill="#F0F6FC"
+font-family="monospace"
+font-size="42"
+font-weight="700"
+
+>
+
 SANSKRITI RANA </text>
 
-<text x="84" y="166"
-   fill="#58A6FF"
-   font-family="monospace"
-   font-size="15">
+<text
+x="84"
+y="166"
+fill="#58A6FF"
+font-family="monospace"
+font-size="15"
+
+>
+
 problem-first engineering </text>
 
-<!-- animated cursor -->
+<!-- Cursor -->
 
-<rect x="307" y="151" width="8" height="18" fill="#58A6FF">
-  <animate attributeName="opacity"
-           values="1;0;1"
-           dur="1s"
-           repeatCount="indefinite"/>
-</rect>
+<rect
+x="307"
+y="151"
+width="8"
+height="18"
+fill="#58A6FF"
 
-<!-- separator -->
+>
 
-<line x1="82" y1="194" x2="1118" y2="194"
-   stroke="#263241"
-   stroke-width="1"/>
+<animate
+ attributeName="opacity"
+ values="1;0;1"
+ dur="1s"
+ repeatCount="indefinite"
+/> </rect>
 
-<!-- status -->
+<!-- ====================================================== -->
 
-<circle cx="91" cy="226" r="5" fill="#3FB950" filter="url(#glow)">
-  <animate attributeName="r"
-           values="5;7;5"
-           dur="2s"
-           repeatCount="indefinite"/>
+<!-- RIGHT SIDE: LANGUAGE CIRCUIT -->
+
+<!-- ====================================================== -->
+
+<!-- Small heading -->
+
+<text
+x="690"
+y="88"
+fill="#4B5563"
+font-family="monospace"
+font-size="10"
+letter-spacing="2"
+
+>
+
+LANGUAGES / CURRENT PATH </text>
+
+<!-- Circuit path -->
+
+<path
+d="
+ M 690 160
+ L 690 130
+ L 790 130
+ L 790 105
+ L 910 105
+ L 910 145
+ L 1010 145
+ L 1010 105
+ L 1090 105
+"
+fill="none"
+stroke="url(#circuitLine)"
+stroke-width="3"
+stroke-linecap="round"
+stroke-linejoin="round"
+/>
+
+<!-- Secondary lower trace -->
+
+<path
+d="
+ M 690 160
+ L 760 160
+ L 760 185
+ L 850 185
+"
+fill="none"
+stroke="#252F3C"
+stroke-width="1"
+stroke-linecap="round"
+/>
+
+<!-- C++ node -->
+
+<circle
+cx="690"
+cy="160"
+r="5"
+fill="#F07167"
+filter="url(#nodeGlow)"
+/>
+
+<text
+x="690"
+y="184"
+fill="#8B949E"
+font-family="monospace"
+font-size="12"
+text-anchor="middle"
+
+>
+
+C++ </text>
+
+<!-- Java node -->
+
+<circle
+cx="790"
+cy="130"
+r="5"
+fill="#58A6FF"
+filter="url(#nodeGlow)"
+/>
+
+<text
+x="790"
+y="110"
+fill="#8B949E"
+font-family="monospace"
+font-size="12"
+text-anchor="middle"
+
+>
+
+Java </text>
+
+<!-- HTML/CSS node -->
+
+<circle
+cx="910"
+cy="105"
+r="5"
+fill="#3FB950"
+filter="url(#nodeGlow)"
+/>
+
+<text
+x="910"
+y="88"
+fill="#8B949E"
+font-family="monospace"
+font-size="12"
+text-anchor="middle"
+
+>
+
+HTML/CSS </text>
+
+<!-- JavaScript node -->
+
+<circle
+cx="1010"
+cy="145"
+r="5"
+fill="#F2CC60"
+filter="url(#nodeGlow)"
+/>
+
+<text
+x="1010"
+y="129"
+fill="#8B949E"
+font-family="monospace"
+font-size="12"
+text-anchor="middle"
+
+>
+
+JS </text>
+
+<!-- Python node -->
+
+<circle
+cx="1090"
+cy="105"
+r="5"
+fill="#BC8CFF"
+filter="url(#nodeGlow)"
+/>
+
+<text
+x="1090"
+y="87"
+fill="#8B949E"
+font-family="monospace"
+font-size="12"
+text-anchor="middle"
+
+>
+
+Py </text>
+
+<!-- ====================================================== -->
+
+<!-- MOVING SIGNAL THROUGH THE CIRCUIT -->
+
+<!-- ====================================================== -->
+
+<circle
+r="3.5"
+fill="#F0F6FC"
+filter="url(#signalGlow)"
+
+>
+
+<animateMotion
+ dur="6s"
+ repeatCount="indefinite"
+ path="
+   M 690 160
+   L 690 130
+   L 790 130
+   L 790 105
+   L 910 105
+   L 910 145
+   L 1010 145
+   L 1010 105
+   L 1090 105
+ "
+/>
+
 </circle>
 
-<text x="108" y="231"
-   fill="#8B949E"
-   font-family="monospace"
-   font-size="14">
+<!-- ====================================================== -->
+
+<!-- SEPARATOR -->
+
+<!-- ====================================================== -->
+
+<line
+x1="82"
+y1="194"
+x2="1118"
+y2="194"
+stroke="#263241"
+stroke-width="1"
+/>
+
+<!-- ====================================================== -->
+
+<!-- SYSTEM STATUS -->
+
+<!-- ====================================================== -->
+
+<circle
+cx="91"
+cy="226"
+r="5"
+fill="#3FB950"
+
+>
+
+<animate
+ attributeName="r"
+ values="5;7;5"
+ dur="2s"
+ repeatCount="indefinite"
+/>
+
+</circle>
+
+<text
+x="108"
+y="231"
+fill="#8B949E"
+font-family="monospace"
+font-size="14"
+
+>
+
 SYSTEM ONLINE </text>
 
-<!-- signal -->
+<!-- Signal text -->
 
-<text x="300" y="231"
-   fill="#6B7280"
-   font-family="monospace"
-   font-size="13">
+<text
+x="300"
+y="231"
+fill="#6B7280"
+font-family="monospace"
+font-size="13"
+
+>
+
 signal: </text>
 
-<text x="355" y="231"
-   fill="#C9D1D9"
-   font-family="monospace"
-   font-size="13">
+<text
+x="355"
+y="231"
+fill="#C9D1D9"
+font-family="monospace"
+font-size="13"
+
+>
+
 curiosity → experiment → build </text>
 
-<!-- lower status -->
+<!-- ====================================================== -->
 
-<text x="84" y="274"
-   fill="#6B7280"
-   font-family="monospace"
-   font-size="12">
+<!-- LOWER STATUS -->
+
+<!-- ====================================================== -->
+
+<text
+x="84"
+y="274"
+fill="#6B7280"
+font-family="monospace"
+font-size="12"
+
+>
+
 CURRENTLY EXPLORING </text>
 
-<text x="84" y="300"
-   fill="#C9D1D9"
-   font-family="monospace"
-   font-size="15">
+<text
+x="84"
+y="300"
+fill="#C9D1D9"
+font-family="monospace"
+font-size="15"
+
+>
+
 AI/ML </text>
 
-<text x="168" y="300"
-   fill="#374151"
-   font-family="monospace"
-   font-size="15">
+<text
+x="168"
+y="300"
+fill="#374151"
+font-family="monospace"
+font-size="15"
+
+>
+
 · </text>
 
-<text x="190" y="300"
-   fill="#C9D1D9"
-   font-family="monospace"
-   font-size="15">
+<text
+x="190"
+y="300"
+fill="#C9D1D9"
+font-family="monospace"
+font-size="15"
+
+>
+
 DEVOPS </text>
 
-<text x="288" y="300"
-   fill="#374151"
-   font-family="monospace"
-   font-size="15">
+<text
+x="288"
+y="300"
+fill="#374151"
+font-family="monospace"
+font-size="15"
+
+>
+
 · </text>
 
-<text x="310" y="300"
-   fill="#C9D1D9"
-   font-family="monospace"
-   font-size="15">
+<text
+x="310"
+y="300"
+fill="#C9D1D9"
+font-family="monospace"
+font-size="15"
+
+>
+
 SOFTWARE </text>
 
-<!-- moving scan -->
+<!-- ====================================================== -->
 
-<rect x="42" y="35" width="3" height="290"
-   fill="url(#signal)"
-   opacity="0.25">
+<!-- MOVING SCAN -->
 
-<animate attributeName="x"
-        values="42;1157;42"
-        dur="7s"
-        repeatCount="indefinite"/>
+<!-- ====================================================== -->
+
+<rect
+x="42"
+y="35"
+width="3"
+height="290"
+fill="url(#scan)"
+opacity="0.25"
+
+>
+
+<animate
+ attributeName="x"
+ values="42;1157;42"
+ dur="7s"
+ repeatCount="indefinite"
+/>
 
 </rect>
 
-<!-- bottom activity -->
+<!-- ====================================================== -->
 
-<text x="1118" y="300"
-   text-anchor="end"
-   fill="#4B5563"
-   font-family="monospace"
-   font-size="11">
+<!-- BOTTOM ACTIVITY -->
+
+<!-- ====================================================== -->
+
+<text
+x="1118"
+y="300"
+text-anchor="end"
+fill="#4B5563"
+font-family="monospace"
+font-size="11"
+
+>
+
 build / break / understand / rebuild </text>
 
 </svg>
