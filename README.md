@@ -12,7 +12,7 @@
 direction:     still_exploring   # exploring AI/ML + DevOps, full-stack on the side
 motivation:    "solve a real problem with tech, not just ship a demo"
 learning_now:  [ JavaScript beyond basics, DSA fundamentals, whatever breaks next ]
-mode:          build → break → understand → rebuild
+mode:          build → break → understand → rebuild !
 ```
 
 <br>
