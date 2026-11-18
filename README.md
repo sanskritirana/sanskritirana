@@ -6,7 +6,7 @@
 
 <br>
 
-## ⚙️  Current Status
+## ⚙️  Current Status 
 
 ```yaml
 direction:     still_exploring   # exploring AI/ML + DevOps, full-stack on the side
